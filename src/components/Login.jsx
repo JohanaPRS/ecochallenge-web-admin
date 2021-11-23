@@ -52,27 +52,8 @@ class Login extends React.Component{
         topTechApi.post(url,this.state.form)
         .then( response=> {
             saveTokenInLocalStorage(response.data.token);
-            //localStorage.setItem('token', response.data.token);
             console.log('token', response.data.token);
             this.props.history.push('/home');
-            /*preguntamos por el estado de la respuesta
-             * La respuesta puede ser estatus ok o estatus error
-             * Si es estatus ok, vamos a redirigir y almacenar el token en el local storage
-             * y si no, vamos a mostrar el error
-             */
-            /*if(response.data.status === "ok"){
-                //si todo va bien almacenamos el token
-                localStorage.setItem("token", response.data.result.token);
-                //una vez que valida el token redireccionamos al dashboard con las props
-                console.log(this.props.history);
-                this.props.history.push("/home");*/
-            /*}else{
-                //asignamos un estado a las variables error y errorMsg
-                this.setState({
-                    error : true,
-                    errorMsg : response.data.result.error_msg //acá va el nombre de la variable de la api que devuelve el error
-                })
-            }*/
         /*el metodo catch se utiliza para controlar los errores que no estan incluidos en la api
          * como por ejemplo que la api este caida o que no tengas internet
          */                
@@ -100,7 +81,7 @@ class Login extends React.Component{
                         </div>
 
                         <form onSubmit={this.manejadorSubmit}>
-                            <input type="text" className="fadeIn second" name="userName" placeholder="userName" onChange={this.manejadorChange}/>
+                            <input type="text" className="fadeIn second" name="userName" placeholder="Nombre" onChange={this.manejadorChange}/>
                             <input type="password" className="fadeIn third" name="password" placeholder="Contraseña" onChange={this.manejadorChange}/><br/><br/>
                             <button type="button" className="btn btn-success btn-lg" onClick={this.manejadorBtn}>Ingresar</button><br/><br/>
                         </form>

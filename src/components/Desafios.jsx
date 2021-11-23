@@ -5,14 +5,12 @@ import Header from '../template/Header';
 import '../assetss/css/App.css'
 //servicio
 import topTechApi from '../services/topTechApi';
-
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-//const url = 'http://localhost:9000/desafios/';
+
 
 class Desafios extends React.Component{
 
@@ -22,7 +20,7 @@ class Desafios extends React.Component{
         modalInsertar: false, //estado para abrir y cerrar el modal 
         form: {
             nombre_desafio: '',
-            estado_desafio: '',
+            status: '',
             puntaje_desafio: '',
             paso1Desafio: '',
             paso2Desafio: '',
@@ -107,7 +105,7 @@ class Desafios extends React.Component{
             tipoModal: 'actualizar',
             form: {
                 nombre_desafio: desafio.nombre_desafio,
-                estado_desafio: desafio.estado_desafio,
+                status: desafio.status,
                 puntaje_desafio: desafio.puntaje_desafio,
                 paso1Desafio: desafio.paso1Desafio,
                 paso2Desafio: desafio.paso2Desafio,
@@ -168,11 +166,11 @@ class Desafios extends React.Component{
                                         <tr>
                                             <td>{desafio.id}</td>
                                             <td>{desafio.nombre_desafio}</td>
-                                            {/* {/*<td>{desafio.estado_desafio ? "Activo" : "Inactivo"}</td> */}
-                                            <td><input type="checkbox" defaultChecked={desafio.estado_desafio}
+                                            {/* {/*<td>{desafio.status ? "Activo" : "Inactivo"}</td> */}
+                                            <td><input type="checkbox" defaultChecked={desafio.status}
                                                 onChange={e => {
-                                                    // this.seleccionarDesafio({ estado_desafio: e.target.checked})
-                                                    this.peticionPutEstado(desafio.id, {estado_desafio: e.target.checked})
+                                                    // this.seleccionarDesafio({ status: e.target.checked})
+                                                    this.peticionPutEstado(desafio.id, {status: e.target.checked})
                                                 }} /> </td>
                                             <td>{desafio.puntaje_desafio}</td>
                                             <td>{desafio.paso1Desafio}</td>
@@ -208,9 +206,9 @@ class Desafios extends React.Component{
                                         <div className="col-md-6">
                                             <label className="col-md-2 control-label"> Estado</label>
                                             <div className="col-lg-12">
-                                                <input className="form-control" name="estado_desafio"
+                                                <input className="form-control" name="status"
                                                     placeholder="estado" type="text"
-                                                    value={form ? form.estado_desafio : ''}
+                                                    value={form ? form.status : ''}
                                                     onChange={this.handleChange} />
                                             </div>
                                         </div>
@@ -264,7 +262,7 @@ class Desafios extends React.Component{
                             </ModalBody>
 
                             <ModalFooter>
-                                {this.state.tipoModal == 'insertar' ? //con esto le decimos a los botones que si el modal lo vamos a usar para insertar tiene que llamar a la peticion post, pero si es para actualizar tiene que llamar a la peticion put
+                                {this.state.tipoModal === 'insertar' ? //con esto le decimos a los botones que si el modal lo vamos a usar para insertar tiene que llamar a la peticion post, pero si es para actualizar tiene que llamar a la peticion put
                                     <button className="btn btn-success" onClick={() => this.peticionPost()}>
                                         Insertar
                                     </button> : <button className="btn btn-success" onClick={() => this.peticionPut()}>

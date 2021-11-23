@@ -61,7 +61,7 @@ npm install --save @fortawesome/react-fontawesome
 npm install --save @fortawesome/free-brands-svg-icons
 
 npm install reactstrap react react-dom
-
+npm install highcharts --save
 
 
 
