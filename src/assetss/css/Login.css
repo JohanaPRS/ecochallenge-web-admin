@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: #5ca568;
+  color: #62964B;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -266,7 +266,7 @@ input[type=password]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #53d469;
+  background-color: #62964B;
   content: "";
   transition: width 0.2s;
 }

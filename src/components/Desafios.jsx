@@ -34,7 +34,7 @@ class Desafios extends React.Component{
     //metodo para hacer la peticion get
     // Para obtener todos los desafios
     peticionGet = () => {
-        let url = "desafios/";
+        let url = "desafios";
         const token = JSON.parse(localStorage.getItem('token'));
         topTechApi.get(url, { headers: { "Authorization": `Bearer ${token}` } }
         ).then(response => {

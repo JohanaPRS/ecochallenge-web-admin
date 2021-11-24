@@ -52,6 +52,7 @@ class Login extends React.Component{
         topTechApi.post(url,this.state.form)
         .then( response=> {
             saveTokenInLocalStorage(response.data.token);
+            //localStorage.setItem('token', response.data.token);
             console.log('token', response.data.token);
             this.props.history.push('/home');
         /*el metodo catch se utiliza para controlar los errores que no estan incluidos en la api

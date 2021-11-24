@@ -16,8 +16,8 @@ label::before{
 }
 
 [type="checkbox"]:checked + label::before {
-    border-color: #0b7542;
-    color: #0b7542;
+    border-color: #62964B;
+    color: #62964B;
     content:'\F00C';
     font-family: "Font Awesome 5 Free";
 }
