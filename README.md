@@ -54,14 +54,23 @@ Dentro de la Terminal del Visual estudio y en la carpeta que creamos el proyecto
 
 ### `npm install --save axios`
 
+### para utilizar los modales en el agregar y editar desafios
+
+### `npm install reactstrap react react-dom`
+
+### para gestionar las graficas del home
+### https://www.npmjs.com/package/react-chartjs-2
+
+### `npm install --save react-chartjs-2 chart.js`
 
 npm i --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
 npm install --save @fortawesome/free-brands-svg-icons
 
-npm install reactstrap react react-dom
-npm install highcharts --save
+
+
+
 
 
 
