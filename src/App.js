@@ -1,12 +1,13 @@
 import React from 'react';
-import './assetss/css/App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+//import './assetss/css/App.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Login from './components/Login';
 import Home from './components/Home';
 import Desafios from './components/Desafios';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
       <React.Fragment>
             <Router>
               <Switch>
-                <Route path="/" exact render = { props=> ( <Login {...props}/>)}></Route>
-                <Route path="/home" exact render = { props=> ( <Home {...props}/>)}></Route>     
-                <Route path="/desafios" exact render = { props=> ( <Desafios {...props}/>)}></Route>
+                <Route path="/" exact  component={Login} />
+                <ProtectedRoute path="/home" exact component={Home} />
+                <ProtectedRoute path="/desafios" exact component={Desafios}/>
               </Switch>
             </Router>
       </React.Fragment>

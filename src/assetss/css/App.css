@@ -1,4 +1,4 @@
-html {
+/* html {
   background-color: #62964B;
 }
 
@@ -6,7 +6,7 @@ body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
   background-color: #62964B;
-}
+} */
 
 .App {
   text-align: center;
@@ -16,6 +16,25 @@ body {
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.navigation {
+  justify-content: space-between;
+}
+
+.buscar-desafio-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buscar-desafio-container .buscador {
+  display: flex;
+  align-items: center;
+}
+
+.buscar-desafio-container .form-control {
+  padding: 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

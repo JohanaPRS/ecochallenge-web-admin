@@ -10,6 +10,12 @@ export function removeItem(key) {
     }
 }
 
+export function getItem(key) {
+    if(window.localStorage){
+        return localStorage.getItem(key);
+    }
+}
+
 export function clear() {
     if(window.localStorage){
         localStorage.clear();

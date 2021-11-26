@@ -1,7 +1,7 @@
 
 import React from 'react';
 //css
-import '../assetss/css/App.css';
+import '../assetss/css/Home.css'
 import Header from '../template/Header';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
