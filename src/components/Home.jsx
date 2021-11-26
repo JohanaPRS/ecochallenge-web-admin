@@ -17,7 +17,7 @@ function Home() {
       borderColor: 'black',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(0,255,0,0.2)',
-      hoverBorderColor: '#FF0000',
+      hoverBorderColor: '#62964B',
       data: [300, 785, 368, 984, 1255, 245, 745]
     }]
   };
@@ -29,7 +29,7 @@ function Home() {
 
     <React.Fragment>
       <Header />
-      <div className="App" style={{ width: '75%', height: '600px', marginLeft: 100 }}>
+      <div className="App" style={{ width: '80%', height: '400px', marginLeft: 100 }}>
         <br />
         <h4>Grafica cantidad de plastico reciclado por rango de edad</h4>
         <br />
