@@ -41,9 +41,11 @@ const Header = (props) => {
                             <a className="nav-link" href="/desafios">
                                 Desafíos<span className="sr-only"></span></a>
                         </li>
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/prueba"><span className="sr-only"></span></a>
+                        <li className="nav-item active" onSubmit={manejadorSubmit}>
+                            <a className="nav-link" href="/preguntas">
+                                FAQ<span className="sr-only"></span></a>
                         </li>
+
                     </ul>
                     <form className="form-inline my-2 my-lg-0">                            
                          <button className="btn btn-outline-success" type="submit" onClick={logout}><FontAwesomeIcon icon={faSignOutAlt}/> Logout</button>

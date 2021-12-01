@@ -16,7 +16,8 @@ const Desafios = (props) => {
 
     const [state, setState] = useState({
         desafios: [],
-        modalInsertar: false, //estado para abrir y cerrar el modal 
+        desafiosFiltrados:[],
+        modalInsertar: false, //estado para abrir y cerrar el modal,
         form: {
             nombre_desafio: '',
             status: '',
@@ -126,10 +127,15 @@ const Desafios = (props) => {
         setState({ //cambiamos el estado cuando el usuario este escribiendo en el imput
             ...state,
             form: {
-                ...state.form, //es para heredar todos los atributos que ya existan en el form y no se borren al momento queel usuario escriba
+                ...state.form, //es para heredar todos los atributos que ya existan en el form y no se borren al momento que el usuario escriba                
                 [e.target.name]: e.target.value
             }
         });        
+    }
+
+    const onFilterInputChange = (e) => {
+        const value = e.target.value;
+        filtrar(value);
     }
 
     // Mostrar el modal de adicionar un desafio
@@ -142,12 +148,33 @@ const Desafios = (props) => {
         });         
     }
 
+
     const modalClose = () => {
         setState({ 
             ...state,
             modalInsertar: false
         });    
     }
+
+      // Un efecto se usa para ejucutar algo mientras el componente se carga
+      useEffect(() => {
+        peticionGet();
+    }, []);
+
+    //funcion para filtrar en el buscador
+    const filtrar=(terminoBusqueda)=>{
+        const resultadosBusqueda = state.desafios.filter((elemento) => {
+            if(elemento.paso1Desafio.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
+                return elemento;
+            }
+        });
+        setState({
+            ...state,
+            desafiosFiltrados: resultadosBusqueda
+        });
+        return resultadosBusqueda;
+    }
+
 
     const form = state.form;
     
@@ -157,8 +184,10 @@ const Desafios = (props) => {
             <div className="App">
                 <div className="buscar-desafio-container">
                     <div className="buscador">
-                        <label htmlFor="buscar">Buscar: </label>
-                        <input type="text" name="buscar" className="form-control" placeholder="Criterio de busqueda"/>
+                        <label htmlFor="buscar">Filtrar: </label>
+                        <input type="text" name="buscar" className="form-control" placeholder="filtrar por material a reciclar"
+                        onChange={onFilterInputChange}
+                        />
                     </div>
                     <div>
                         <br /><br />
@@ -182,7 +211,7 @@ const Desafios = (props) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {state.desafios.map(desafio => {
+                            { state.desafiosFiltrados.length === 0 && <>{state.desafios.map(desafio => {
                                 return (
                                     <tr key={desafio.id}>
                                         <td>{desafio.id}</td>
@@ -199,7 +228,25 @@ const Desafios = (props) => {
                                         </td>
                                     </tr>
                                 )
-                            })}
+                            })}</> }
+                            {state.desafiosFiltrados.length > 0 && <>{state.desafiosFiltrados.map(desafio => {
+                                return (
+                                    <tr key={desafio.id}>
+                                        <td>{desafio.id}</td>
+                                        <td>{desafio.nombre_desafio}</td>                                        
+                                        <td><input type="checkbox" defaultChecked={desafio.status} onChange={e => { peticionPutEstado(desafio.id, {status: e.target.checked})}} /></td>
+                                        <td>{desafio.puntaje_desafio}</td>
+                                        <td>{desafio.paso1Desafio}</td>
+                                        <td>{desafio.paso2Desafio}</td>
+                                        <td>{desafio.paso3Desafio}</td>
+                                        <td>{desafio.paso4Desafio}</td>
+                                        <td>
+                                            <button className="btn btn-primary" onClick={() => { seleccionarDesafio(desafio); }}><FontAwesomeIcon icon={faEdit} /></button>
+                                            {"   "}
+                                        </td>
+                                    </tr>
+                                )
+                            })}</>}
                         </tbody>
                     </table>
 

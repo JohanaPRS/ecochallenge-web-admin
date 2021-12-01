@@ -35,6 +35,7 @@ body {
 
 .buscar-desafio-container .form-control {
   padding: 10px;
+  min-width: 300px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

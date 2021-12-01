@@ -31,7 +31,7 @@ function Home() {
       <Header />
       <div className="App" style={{ width: '80%', height: '400px', marginLeft: 100 }}>
         <br />
-        <h4>Grafica cantidad de plastico reciclado por rango de edad</h4>
+        <h4>Gráfica cantidad de material reciclado por rango de edad</h4>
         <br />
         <Bar data={data} options={options} />
       </div>
