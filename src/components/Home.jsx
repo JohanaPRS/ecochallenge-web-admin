@@ -12,13 +12,22 @@ function Home() {
   const data = {
     labels: ['12', '13', '14', '15', '16', '17', '18'],
     datasets: [{
-      label: 'Usuarios por edad',
-      backgroundColor: '#62964B',
+      label: 'plástico',
+      backgroundColor: '#3F7CAC',
       borderColor: 'black',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(0,255,0,0.2)',
       hoverBorderColor: '#62964B',
       data: [300, 785, 368, 984, 1255, 245, 745]
+    },{
+      label: 'cartón',
+      backgroundColor: '#A24936',
+      borderColor: 'black',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(0,255,0,0.2)',
+      hoverBorderColor: '#62964B',
+      data: [30, 456, 456, 100, 469, 1234, 1467]
+    
     }]
   };
   const options = {

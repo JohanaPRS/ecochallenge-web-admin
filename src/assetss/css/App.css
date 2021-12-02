@@ -3,14 +3,14 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   height: 100vh;
-  background-color: #62964B;
+  background-color: #62964B !important;
 } */
 
 .App {
   text-align: center;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
 }
 
 .App-logo {
