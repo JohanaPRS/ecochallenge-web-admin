@@ -12,23 +12,31 @@ function Home() {
   const data = {
     labels: ['12', '13', '14', '15', '16', '17', '18'],
     datasets: [{
-      label: 'plástico',
+      label: 'Plástico',
       backgroundColor: '#3F7CAC',
-      borderColor: 'black',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(0,255,0,0.2)',
-      hoverBorderColor: '#62964B',
+      borderColor: '#154360',
+      borderWidth: 2,
+      hoverBackgroundColor: '#A9CCE3',
+      hoverBorderColor: '#154360',
       data: [300, 785, 368, 984, 1255, 245, 745]
     },{
-      label: 'cartón',
+      label: 'Cartón',
       backgroundColor: '#A24936',
-      borderColor: 'black',
-      borderWidth: 1,
-      hoverBackgroundColor: 'rgba(0,255,0,0.2)',
-      hoverBorderColor: '#62964B',
-      data: [30, 456, 456, 100, 469, 1234, 1467]
-    
-    }]
+      borderColor: '#641E16',
+      borderWidth: 2,
+      hoverBackgroundColor: '#E6B0AA',
+      hoverBorderColor: '#641E16',
+      data: [30, 456, 456, 100, 469, 1234, 1467]    
+    },{
+      label: 'Papel',
+      backgroundColor: '#909497',
+      borderColor: '#626567',
+      borderWidth: 2,
+      hoverBackgroundColor: '#D7DBDD',
+      hoverBorderColor: '#626567',
+      data: [123, 586, 656, 400, 669, 334, 267]    
+    },
+  ]
   };
   const options = {
     maintainAspectRatio: false,
